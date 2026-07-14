@@ -3,13 +3,12 @@
   "version": 2,
   "buildCommand": "npm run install:all && npm run build",
   "installCommand": "npm run install:all",
-  "framework": null,
-  "functions": {
-    "server.js": {
-      "maxDuration": 120,
-      "memory": 1024
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/server.js"
     }
-  },
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

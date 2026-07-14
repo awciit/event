@@ -1,6 +1,7 @@
 node_modules/
 dist/
 build/
+public/
 .env
 .env.local
 .env.*.local
@@ -9,3 +10,5 @@ build/
 coverage/
 .vite/
 .vercel/
+.vercel
+.env*
