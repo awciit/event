@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "buildCommand": "npm run install:all && npm run build",
+  "buildCommand": "NODE_ENV=development npm run install:all && npm run build",
   "installCommand": "npm run install:all",
   "rewrites": [
     {
