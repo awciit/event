@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { validateGroqApiKey } from '../config.js';
 import { generateEventPlan } from '../services/groqService.js';
 import { validateEventInput, EVENT_TYPE_KEYS, THEME_KEYS } from '../utils/validation.js';
 
@@ -9,6 +10,15 @@ router.get('/options', (_req, res) => {
 });
 
 router.post('/generate', async (req, res) => {
+  try {
+    validateGroqApiKey();
+  } catch (error) {
+    return res.status(503).json({
+      success: false,
+      error: error.message,
+    });
+  }
+
   const validation = validateEventInput(req.body);
 
   if (!validation.valid) {
